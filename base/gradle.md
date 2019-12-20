@@ -1,0 +1,7 @@
+Gradle的生命周期
+
+当我们执行编译比如 ./gradlew clean 或者 ./gradlew build可以清楚的看到控制台会有一个短暂的 Loading 和 Configuring 以及Executing 三个执行阶段。这就是gradle的三个生命周期阶段。
+
+初始化阶段：它就是我们执行编译命令式的loading阶段，这个阶段执行时间较快，其实它执行的的setting.gradle。它主要解析的式工程中所有的Project所对应的project对象。
+配置阶段：它解析的是所有project对象中的task，构建task拓扑图
+执行阶段：执行的是具体的task，我们前面说到的clean和build其实对应的就是一个task。它的执行时间一般都比较长，原因是它要执行完task对应的所有依赖才可以执行自己。
